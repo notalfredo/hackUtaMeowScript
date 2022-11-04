@@ -44,6 +44,8 @@ public class converter
             {
                 i+=2;
                 key = arr[i];
+                System.out.print(key+", "+arr[i+2]);
+                System.out.println(i+"/"+arr.length);
                 i+=2;
             }
             if(arr[i].equals("::"))
