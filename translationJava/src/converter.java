@@ -8,10 +8,12 @@ import java.util.Scanner;
 public class converter
 {
     Map<String,String[]> dict;
-    public converter(String fileName) throws FileNotFoundException
+    String fileType;
+    public converter(String fileName, String fileType) throws FileNotFoundException
     {
         dict = new HashMap<String,String[]>();
         arrayToMap(fileToArray(new File(fileName)));
+        this.fileType = fileType;
     }
 
     private String[] fileToArray(File f) throws FileNotFoundException //converts file to maps
@@ -40,19 +42,17 @@ public class converter
         {
             String key;
             String[] value = null;
-            if(arr[i].equals("<<"));
+            if(arr[i].compareTo("<<") == 0);
             {
                 i+=2;
                 key = arr[i];
-                System.out.print(key+", "+arr[i+2]);
-                System.out.println(i+"/"+arr.length);
                 i+=2;
             }
-            if(arr[i].equals("::"))
+            if(arr[i].compareTo("::") == 0)
             {
                 ArrayList<String> v = new ArrayList<>();
                 i+=2;
-                while(arr[i].equals(">>"))
+                while(!arr[i].equals(">>"))
                 {
                     v.add(arr[i]);
                     i++;
@@ -60,10 +60,16 @@ public class converter
                 value = new String[v.size()];
                 for(int j=0;j<value.length;j++)
                     value[j] = v.get(j);
+                i++;
             }
             if(!key.isEmpty() && value!=null)    //checks both parts are there
                 dict.put(key,value);
         }
     }
 
+    public Map<String, String[]> getMap()   //returns dictionary hashmap
+    {
+
+        return null;
+    }
 }
