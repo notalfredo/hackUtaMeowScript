@@ -41,6 +41,7 @@ public class translator
                     w.write(key[j]+" ");
                 w.write("\n");
             }
+            w.close();
         }
 
 }
