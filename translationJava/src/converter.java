@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 public class converter
 {
-    Map<String,String[]> dict;
-    String fileType;
+    private Map<String,String[]> dict;
+    private String fileType;
     public converter(String fileName, String fileType) throws FileNotFoundException
     {
         dict = new HashMap<String,String[]>();
@@ -69,7 +69,11 @@ public class converter
 
     public Map<String, String[]> getMap()   //returns dictionary hashmap
     {
+        return dict;
+    }
 
-        return null;
+    public String getFileType() //returns what filetype the dictionary is attributed to
+    {
+        return fileType;
     }
 }
